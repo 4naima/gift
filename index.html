@@ -39,20 +39,22 @@
 
 <div id="countdown"></div>
 
-<div id="hiddenContent">
+<div id="hiddenContent" style="display:none; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:20px;">
+  
   <h1>💌 Happy Birthday 💌</h1>
-  <p>The real surprise starts here...</p>
-  <!-- Envelope Image -->
-<img id="envelope" src="envelope.png" style="width:200px; cursor:pointer;" onclick="openLetter()" />
 
-<!-- Letter (hidden initially) -->
-<div id="letter" style="display:none; margin-top:20px;">
-  <p style="font-family: 'Cursive', serif; font-size:18px; background:#fff2e6; padding:20px; border-radius:10px; max-width:400px; margin:auto;">
-    Dear [Her Name],<br><br>
-    Happy Birthday! 🎉💖<br>
-    [Your letter content goes here...]
-  </p>
-</div>
+  <!-- Envelope -->
+  <img id="envelope" src="envelope.png" style="width:200px; cursor:pointer;" onclick="openLetter()" />
+
+  <!-- Letter (hidden initially) -->
+  <div id="letter" style="display:none; max-width:400px;">
+    <p style="font-family: 'Cursive', serif; font-size:18px; background:#fff2e6; padding:20px; border-radius:10px;">
+      Dear [Her Name],<br><br>
+      Happy Birthday! 🎉💖<br>
+      [Your letter content goes here...]
+    </p>
+  </div>
+
 </div>
 
 <script>
@@ -72,10 +74,11 @@
         "⏳ " + days + " days left...";
     }
   }, 1000);
+  function openLetter() {
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+  }
 </script>
-function openLetter() {
-  document.getElementById("envelope").style.display = "none"; // hides envelope
-  document.getElementById("letter").style.display = "block"; // shows letter
 }
 </body>
 </html> 
